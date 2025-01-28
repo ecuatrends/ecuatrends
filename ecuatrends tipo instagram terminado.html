@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<!-- saved from url=(0031)http://127.0.0.1:8000/sweetie/# -->
+<html lang="es" class="dark">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="./Sweetie_files/main.min.css">
+      <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+      <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@800&display=swap" rel="stylesheet">
+      <title>Sweetie</title>
+      <style>
+         .custom-gradient-bg {
+         background: black;  /* fallback for old browsers */
+         }
+         .ecuatrends-text {
+         font-family: "Dosis", sans-serif;
+         font-optical-sizing: auto;
+         font-weight: 800;
+         font-style: normal;
+         color: black; /* Color del texto principal */
+         text-align: center;
+         text-shadow: 
+         -3px -3px 3px white,  
+         3px -3px 3px white,
+         -3px  3px 3px white,
+         3px  3px 3px white;
+         }
+         .shopify-banner {
+         width: 100%;
+         background-color: #333333;
+         overflow: hidden;
+         padding: 10px 0;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         position: relative;
+         }
+         .message-container {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         height: 1.5em; /* Adjust based on font size */
+         overflow: hidden;
+         }
+         .banner-message {
+         margin: 0;
+         position: absolute;
+         width: 100%;
+         text-align: center;
+         opacity: 0;
+         transform: translateY(100%);
+         transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+         }
+         .banner-message.active {
+         transform: translateY(0);
+         opacity: 1;
+         }
+         .banner-message.previous {
+         transform: translateY(-100%);
+         opacity: 0;
+         }
+      </style>
+   </head>
+   <body class="custom-gradient-bg">
+      <div id="hs-subscription-with-image" class="hs-overlay hidden size-full fixed top-0 start-0 z-[80] overflow-x-hidden overflow-y-auto" role="dialog" tabindex="-1" aria-labelledby="hs-subscription-with-image-label">
+         <div class="hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 mt-0 opacity-0 ease-out transition-all sm:max-w-lg sm:w-full m-3 sm:mx-auto">
+            <div class="relative flex flex-col bg-white shadow-lg rounded-xl dark:bg-neutral-900">
+               <div class="absolute top-2 z-[10] end-2">
+                  <button type="button" class="inline-flex justify-center items-center size-8 text-sm font-semibold rounded-lg border border-transparent bg-white/10 text-white hover:bg-white/20 disabled:opacity-50 disabled:pointer-events-none" aria-label="Close" data-hs-overlay="#hs-subscription-with-image">
+                     <span class="sr-only">Close</span>
+                     <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 6 6 18"/>
+                        <path d="m6 6 12 12"/>
+                     </svg>
+                  </button>
+               </div>
+               <div class="aspect-w-16 aspect-h-8">
+                  <img class="w-full object-cover rounded-t-xl" src="https://images.unsplash.com/photo-1648747067020-73f77da74e8f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=560&q=80" alt="Modal Hero Image">
+               </div>
+               <div class="p-4 sm:p-10 text-center overflow-y-auto">
+                  <h3 id="hs-subscription-with-image-label" class="mb-2 text-2xl font-bold text-gray-800 dark:text-neutral-200">
+                     Yeahhhh 🎉
+                  </h3>
+                  <p class="text-gray-500 dark:text-neutral-500">
+                     Thank you for your subscription. You will be sent the next issue of our newsletter shortly.
+                  </p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div id="hs-subscription-with-image2" class="hs-overlay hidden size-full fixed top-0 start-0 z-[80] overflow-x-hidden overflow-y-auto" role="dialog" tabindex="-1" aria-labelledby="hs-subscription-with-image2-label">
+         <div class="hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 mt-0 opacity-0 ease-out transition-all sm:max-w-lg sm:w-full m-3 sm:mx-auto">
+            <div class="relative flex flex-col bg-white shadow-lg rounded-xl dark:bg-neutral-900">
+               <div class="absolute top-2 z-[10] end-2">
+                  <button type="button" class="inline-flex justify-center items-center size-8 text-sm font-semibold rounded-lg border border-transparent bg-white/10 text-white hover:bg-white/20 disabled:opacity-50 disabled:pointer-events-none" aria-label="Close" data-hs-overlay="#hs-subscription-with-image2">
+                     <span class="sr-only">Close</span>
+                     <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 6 6 18"/>
+                        <path d="m6 6 12 12"/>
+                     </svg>
+                  </button>
+               </div>
+               <div class="aspect-w-16 aspect-h-8">
+                  <img class="w-full object-cover rounded-t-xl" src="https://images.unsplash.com/photo-1648747067020-73f77da74e8f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=560&q=80" alt="Modal Hero Image">
+               </div>
+               <div class="p-4 sm:p-10 text-center overflow-y-auto">
+                  <h3 id="hs-subscription-with-image2-label" class="mb-2 text-2xl font-bold text-gray-800 dark:text-neutral-200">
+                     Yeahhhh 🎉 INFO 2
+                  </h3>
+                  <p class="text-gray-500 dark:text-neutral-500">
+                     Thank you for your subscription. You will be sent the next issue of our newsletter shortly.
+                  </p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <main id="content custom-gradient-bg">
+         <div class="shopify-banner">
+            <div class="message-container">
+               <p class="banner-message text-base font-bold text-white"> 📤 Envíos gratis en pedidos mayores a $50 📤</p>
+               <p class="banner-message text-base font-bold text-white"> 📱 ¡Nuevo! Fundas para iPhone 16: Protección definitiva con estilo ilimitado 📱</p>
+               <p class="banner-message text-base font-bold text-white">🔥 ¡Envios a todo el Ecuador! 🔥</p>
+            </div>
+         </div>
+         <!-- ========== HEADER ========== -->
+         <header class="sticky top-0 inset-x-0 flex flex-wrap md:justify-start md:flex-nowrap z-50 w-full text-sm">
+            <nav class="mt-4 relative max-w-2xl w-full border border-gray-200 rounded-[2rem] mx-5 py-2.5 md:flex md:items-center md:justify-between md:py-0 md:px-4 md:mx-auto bg-neutral-900 border-neutral-700">
+               <div class="px-4 md:px-0 flex justify-between items-center">
+                  <!-- Logo -->
+                  <div>
+                     <a class="flex-none rounded-md text-xl inline-block font-semibold focus:outline-none focus:opacity-80" href="../../templates/personal/index.html" aria-label="Preline">
+                        <svg class="w-24 h-auto" width="116" height="32" viewBox="0 0 116 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                           <path d="M33.5696 30.8182V11.3182H37.4474V13.7003H37.6229C37.7952 13.3187 38.0445 12.9309 38.3707 12.5369C38.7031 12.1368 39.134 11.8045 39.6634 11.5398C40.1989 11.2689 40.8636 11.1335 41.6577 11.1335C42.6918 11.1335 43.6458 11.4044 44.5199 11.946C45.3939 12.4815 46.0926 13.291 46.6158 14.3743C47.139 15.4515 47.4006 16.8026 47.4006 18.4276C47.4006 20.0095 47.1451 21.3452 46.6342 22.4347C46.1295 23.518 45.4401 24.3397 44.5661 24.8999C43.6982 25.4538 42.7256 25.7308 41.6484 25.7308C40.8852 25.7308 40.2358 25.6046 39.7003 25.3523C39.1709 25.0999 38.737 24.7829 38.3984 24.4013C38.0599 24.0135 37.8014 23.6226 37.6229 23.2287H37.5028V30.8182H33.5696ZM37.4197 18.4091C37.4197 19.2524 37.5367 19.9879 37.7706 20.6158C38.0045 21.2436 38.343 21.733 38.7862 22.0838C39.2294 22.4285 39.768 22.6009 40.402 22.6009C41.0421 22.6009 41.5838 22.4254 42.027 22.0746C42.4702 21.7176 42.8056 21.2251 43.0334 20.5973C43.2673 19.9633 43.3842 19.2339 43.3842 18.4091C43.3842 17.5904 43.2704 16.8703 43.0426 16.2486C42.8149 15.6269 42.4794 15.1406 42.0362 14.7898C41.593 14.4389 41.0483 14.2635 40.402 14.2635C39.7618 14.2635 39.2202 14.4328 38.777 14.7713C38.34 15.1098 38.0045 15.59 37.7706 16.2116C37.5367 16.8333 37.4197 17.5658 37.4197 18.4091ZM49.2427 25.5V11.3182H53.0559V13.7926H53.2037C53.4622 12.9124 53.8961 12.2476 54.5055 11.7983C55.1149 11.3428 55.8166 11.1151 56.6106 11.1151C56.8076 11.1151 57.02 11.1274 57.2477 11.152C57.4754 11.1766 57.6755 11.2105 57.8478 11.2536V14.7436C57.6632 14.6882 57.4077 14.639 57.0815 14.5959C56.7553 14.5528 56.4567 14.5312 56.1859 14.5312C55.6073 14.5312 55.0903 14.6574 54.6348 14.9098C54.1854 15.156 53.8284 15.5007 53.5638 15.9439C53.3052 16.3871 53.176 16.898 53.176 17.4766V25.5H49.2427ZM64.9043 25.777C63.4455 25.777 62.1898 25.4815 61.1373 24.8906C60.0909 24.2936 59.2845 23.4503 58.7182 22.3608C58.1519 21.2652 57.8688 19.9695 57.8688 18.4737C57.8688 17.0149 58.1519 15.7346 58.7182 14.6328C59.2845 13.531 60.0816 12.6723 61.1096 12.0568C62.1437 11.4413 63.3563 11.1335 64.7474 11.1335C65.683 11.1335 66.5539 11.2843 67.3603 11.5859C68.1728 11.8814 68.8806 12.3277 69.4839 12.9247C70.0932 13.5218 70.5672 14.2727 70.9057 15.1776C71.2443 16.0762 71.4135 17.1288 71.4135 18.3352V19.4155H59.4384V16.978H67.7111C67.7111 16.4117 67.588 15.91 67.3418 15.473C67.0956 15.036 66.754 14.6944 66.317 14.4482C65.8861 14.1958 65.3844 14.0696 64.812 14.0696C64.2149 14.0696 63.6856 14.2081 63.2239 14.4851C62.7684 14.7559 62.4114 15.1222 62.1529 15.5838C61.8944 16.0393 61.762 16.5471 61.7559 17.1072V19.4247C61.7559 20.1264 61.8851 20.7327 62.1437 21.2436C62.4083 21.7545 62.7807 22.1484 63.2608 22.4254C63.741 22.7024 64.3103 22.8409 64.9689 22.8409C65.406 22.8409 65.8061 22.7794 66.1692 22.6562C66.5324 22.5331 66.8432 22.3485 67.1018 22.1023C67.3603 21.8561 67.5572 21.5545 67.6927 21.1974L71.3304 21.4375C71.1458 22.3116 70.7672 23.0748 70.1948 23.7273C69.6285 24.3736 68.896 24.8783 67.9974 25.2415C67.1048 25.5985 66.0738 25.777 64.9043 25.777ZM77.1335 6.59091V25.5H73.2003V6.59091H77.1335ZM79.5043 25.5V11.3182H83.4375V25.5H79.5043ZM81.4801 9.49006C80.8954 9.49006 80.3937 9.29616 79.9752 8.90838C79.5628 8.51444 79.3566 8.04356 79.3566 7.49574C79.3566 6.95407 79.5628 6.48935 79.9752 6.10156C80.3937 5.70762 80.8954 5.51065 81.4801 5.51065C82.0649 5.51065 82.5635 5.70762 82.9759 6.10156C83.3944 6.48935 83.6037 6.95407 83.6037 7.49574C83.6037 8.04356 83.3944 8.51444 82.9759 8.90838C82.5635 9.29616 82.0649 9.49006 81.4801 9.49006ZM89.7415 17.3011V25.5H85.8083V11.3182H89.5569V13.8203H89.723C90.037 12.9955 90.5632 12.343 91.3019 11.8629C92.0405 11.3767 92.9361 11.1335 93.9887 11.1335C94.9735 11.1335 95.8322 11.349 96.5647 11.7798C97.2971 12.2107 97.8665 12.8262 98.2728 13.6264C98.679 14.4205 98.8821 15.3684 98.8821 16.4702V25.5H94.9489V17.1719C94.9551 16.304 94.7335 15.6269 94.2841 15.1406C93.8348 14.6482 93.2162 14.402 92.4283 14.402C91.8989 14.402 91.4311 14.5159 91.0249 14.7436C90.6248 14.9714 90.3109 15.3037 90.0831 15.7408C89.8615 16.1716 89.7477 16.6918 89.7415 17.3011ZM107.665 25.777C106.206 25.777 104.951 25.4815 103.898 24.8906C102.852 24.2936 102.045 23.4503 101.479 22.3608C100.913 21.2652 100.63 19.9695 100.63 18.4737C100.63 17.0149 100.913 15.7346 101.479 14.6328C102.045 13.531 102.842 12.6723 103.87 12.0568C104.905 11.4413 106.117 11.1335 107.508 11.1335C108.444 11.1335 109.315 11.2843 110.121 11.5859C110.934 11.8814 111.641 12.3277 112.245 12.9247C112.854 13.5218 113.328 14.2727 113.667 15.1776C114.005 16.0762 114.174 17.1288 114.174 18.3352V19.4155H102.199V16.978H110.472C110.472 16.4117 110.349 15.91 110.103 15.473C109.856 15.036 109.515 14.6944 109.078 14.4482C108.647 14.1958 108.145 14.0696 107.573 14.0696C106.976 14.0696 106.446 14.2081 105.985 14.4851C105.529 14.7559 105.172 15.1222 104.914 15.5838C104.655 16.0393 104.523 16.5471 104.517 17.1072V19.4247C104.517 20.1264 104.646 20.7327 104.905 21.2436C105.169 21.7545 105.542 22.1484 106.022 22.4254C106.502 22.7024 107.071 22.8409 107.73 22.8409C108.167 22.8409 108.567 22.7794 108.93 22.6562C109.293 22.5331 109.604 22.3485 109.863 22.1023C110.121 21.8561 110.318 21.5545 110.454 21.1974L114.091 21.4375C113.907 22.3116 113.528 23.0748 112.956 23.7273C112.389 24.3736 111.657 24.8783 110.758 25.2415C109.866 25.5985 108.835 25.777 107.665 25.777Z" class="fill-gray-800 dark:fill-white" fill="currentColor"></path>
+                           <path d="M1 29.5V16.5C1 9.87258 6.37258 4.5 13 4.5C19.6274 4.5 25 9.87258 25 16.5C25 23.1274 19.6274 28.5 13 28.5H12" class="stroke-gray-800 dark:stroke-white" stroke="currentColor" stroke-width="2"></path>
+                           <path d="M5 29.5V16.66C5 12.1534 8.58172 8.5 13 8.5C17.4183 8.5 21 12.1534 21 16.66C21 21.1666 17.4183 24.82 13 24.82H12" class="stroke-gray-800 dark:stroke-white" stroke="currentColor" stroke-width="2"></path>
+                           <circle cx="13" cy="16.5214" r="5" class="fill-gray-800 dark:fill-white" fill="currentColor"></circle>
+                        </svg>
+                     </a>
+                  </div>
+                  <!-- End Logo -->
+                  <div class="md:hidden">
+                     <!-- Toggle Button -->
+                     <button type="button"  onclick="document.getElementById('carrito').scrollIntoView({ behavior: 'smooth' })" class="py-2 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
+                        Ver carrito
+                        <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                           <path d="m5 11 4-7"></path>
+                           <path d="m19 11-4-7"></path>
+                           <path d="M2 11h20"></path>
+                           <path d="m3.5 11 1.6 7.4a2 2 0 0 0 2 1.6h9.8c.9 0 1.8-.7 2-1.6l1.7-7.4"></path>
+                           <path d="m9 11 1 9"></path>
+                           <path d="M4.5 15.5h15"></path>
+                           <path d="m15 11-1 9"></path>
+                        </svg>
+                     </button>
+                     <!-- End Toggle Button -->
+                  </div>
+               </div>
+               <div id="hs-navbar-header-floating" class="hidden hs-collapse overflow-hidden transition-all duration-300 basis-full grow md:block" aria-labelledby="hs-navbar-header-floating-collapse">
+                  <div class="flex flex-col md:flex-row md:items-center md:justify-end gap-2 md:gap-3 mt-3 md:mt-0 py-2 md:py-0 md:ps-7">
+                     <button type="button"  onclick="document.getElementById('carrito').scrollIntoView({ behavior: 'smooth' })" class="py-2 m-2 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
+                        Ver carrito
+                        <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                           <path d="m5 11 4-7"></path>
+                           <path d="m19 11-4-7"></path>
+                           <path d="M2 11h20"></path>
+                           <path d="m3.5 11 1.6 7.4a2 2 0 0 0 2 1.6h9.8c.9 0 1.8-.7 2-1.6l1.7-7.4"></path>
+                           <path d="m9 11 1 9"></path>
+                           <path d="M4.5 15.5h15"></path>
+                           <path d="m15 11-1 9"></path>
+                        </svg>
+                     </button>
+                  </div>
+               </div>
+            </nav>
+         </header>
+         <!-- ========== END HEADER ========== -->
+         <div class="mt-4 mx-5">
+            <div class="backdrop-blur-lg bg-white/60 shadow-xl rounded-xl border-gray-200 max-w-2xl mx-auto pt-10 pb-10 md:pt-10 px-4 sm:px-6 lg:px-8">
+               <!-- Profile -->
+               <div class="flex items-center gap-x-3">
+                  <div class="shrink-0">
+                     <img class="shrink-0 size-16 rounded-full" src="./Sweetie_files/digital marketing logo abstract gradient (500 x 100 px) (500 x 500 px) (1).png" alt="Avatar">
+                  </div>
+                  <div class="grow">
+                     <h1 class="text-xl font-bold text-gray-800 ">
+                        Ecuatrends
+                     </h1>
+                     <p class="text-base text-gray-800 ">
+                        🔥¡Los mejores Cases para tu iPhone!💓 
+                     </p>
+                  </div>
+               </div>
+               <!-- End Profile -->
+               <!-- About -->
+               <div class="mt-6">
+                  <p class="text-base text-gray-800">
+                     ¡Envios a todo el Ecuador!<br>Protección definitiva con estilo<br>Ecuador - Guayaquil<br>Tienda física - Norte de Guayaquil
+                  </p>
+                  <div class="flex justify-center mt-6 space-x-1">
+                     <a class="inline-flex justify-center items-center size-12 text-sm font-semibold rounded-lg  text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none" href="https://www.instagram.com/sweetiecuddle_shop/" target="_parent">
+                        <svg class="shrink-0 size-8" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                           <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"></path>
+                        </svg>
+                     </a>
+                     <a class="inline-flex justify-center items-center size-12 text-sm font-semibold rounded-lg  text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none" href="https://api.whatsapp.com/send?phone=5930995972586" target="_parent">
+                        <svg class="shrink-0 size-8" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                           <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"></path>
+                        </svg>
+                     </a>
+                     <a class="inline-flex justify-center items-center size-12 text-sm font-semibold rounded-lg  text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none" href="https://www.tiktok.com/@sweetiecuddle_shop" target="_parent">
+                        <svg class="shrink-0 size-8" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                           <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z"></path>
+                        </svg>
+                     </a>
+                  </div>
+               </div>
+               <!-- End About -->
+               <!-- Link -->
+               <a class="mt-4 shadow-xl border border-neutral-700 group block  focus:outline-none p-4 rounded-lg text-center" href="https://maps.app.goo.gl/kkKaM3xVN3HxEYKC8">
+                  <div class="max-w-[85rem] px-4 sm:px-6 lg:px-8 mx-auto">
+                     <p class="me-2 inline-block text-sm text-gray-800 dark:text-neutral-200">
+                        ¡Visita nuestra tienda fisica! 
+                     </p>
+                     <span class="group-hover:underline group-focus:underline decoration-2 inline-flex justify-center items-center gap-x-2 font-semibold text-blue-600 text-sm dark:text-blue-500">
+                        Google Maps
+                        <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                           <path d="m9 18 6-6-6-6"></path>
+                        </svg>
+                     </span>
+                  </div>
+               </a>
+               <!-- End Link -->
+               <!-- Top más vendido -->
+               <div class="mt-4 rounded-lg shadow-md border border-gray-800 p-5">
+                  <h2 class="mb-5 font-bold text-black dark:text-neutral-200">
+                     🔥 Colección destacada 🔥
+                  </h2>
+                  <!-- Image Grid -->
+                  <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                     <div class="group block relative overflow-hidden rounded-lg">
+                        <div class="cursor-pointer" aria-haspopup="dialog" aria-expanded="false" aria-controls="hs-subscription-with-image2" data-hs-overlay="#hs-subscription-with-image2">
+                           <img class="w-full size-40 object-cover bg-gray-100 rounded-lg dark:bg-neutral-800" src="Sweetie_files/Culture.png" alt="Project">
+                           <div class="absolute top-1 start-1 opacity-0 group-hover:opacity-100 transition">
+                              <div class="flex items-center gap-x-1 py-1 px-2 bg-white border border-gray-200 text-gray-800 rounded-lg dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-200">
+                                 <svg class="shrink-0 size-3" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"></path>
+                                 </svg>
+                                 <span class="text-xs">Compra por WhatsApp</span>
+                              </div>
+                           </div>
+                           <div class="p-2 text-sm">
+                              <h3 class="font-bold">Culture 🔥</h3>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="group block relative overflow-hidden rounded-lg">
+                        <div class="cursor-pointer" aria-haspopup="dialog" aria-expanded="false" aria-controls="hs-subscription-with-image2" data-hs-overlay="#hs-subscription-with-image2">
+                           <img class="w-full size-40 object-cover bg-gray-100 rounded-lg dark:bg-neutral-800" src="Sweetie_files/Art.png" alt="Project">
+                           <div class="absolute top-1 start-1 opacity-0 group-hover:opacity-100 transition">
+                              <div class="flex items-center gap-x-1 py-1 px-2 bg-white border border-gray-200 text-gray-800 rounded-lg dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-200">
+                                 <svg class="shrink-0 size-3" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"></path>
+                                 </svg>
+                                 <span class="text-xs">Compra por WhatsApp</span>
+                              </div>
+                           </div>
+                           <div class="p-2 text-sm">
+                              <h3 class="font-bold">Art 🎨</h3>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="group block relative overflow-hidden rounded-lg">
+                        <div class="cursor-pointer" aria-haspopup="dialog" aria-expanded="false" aria-controls="hs-subscription-with-image2" data-hs-overlay="#hs-subscription-with-image2">
+                           <img class="w-full size-40 object-cover bg-gray-100 rounded-lg dark:bg-neutral-800" src="Sweetie_files/Nature.png" alt="Project">
+                           <div class="absolute top-1 start-1 opacity-0 group-hover:opacity-100 transition">
+                              <div class="flex items-center gap-x-1 py-1 px-2 bg-white border border-gray-200 text-gray-800 rounded-lg dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-200">
+                                 <svg class="shrink-0 size-3" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"></path>
+                                 </svg>
+                                 <span class="text-xs">Compra por WhatsApp</span>
+                              </div>
+                           </div>
+                           <div class="p-2 text-sm">
+                              <h3 class="font-bold">Nature 🍃</h3>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="group block relative overflow-hidden rounded-lg">
+                        <div class="cursor-pointer" aria-haspopup="dialog" aria-expanded="false" aria-controls="hs-subscription-with-image2" data-hs-overlay="#hs-subscription-with-image2">
+                           <img class="w-full size-40 object-cover bg-gray-100 rounded-lg dark:bg-neutral-800" src="Sweetie_files/Abstracto.png" alt="Project">
+                           <div class="absolute top-1 start-1 opacity-0 group-hover:opacity-100 transition">
+                              <div class="flex items-center gap-x-1 py-1 px-2 bg-white border border-gray-200 text-gray-800 rounded-lg dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-200">
+                                 <svg class="shrink-0 size-3" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"></path>
+                                 </svg>
+                                 <span class="text-xs">Compra por WhatsApp</span>
+                              </div>
+                           </div>
+                           <div class="p-2 text-sm">
+                              <h3 class="font-bold">Abstracto 🖼️</h3>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- Agrega los demás productos de manera similar -->
+                  </div>
+                  <!-- End Image Grid -->
+                  <!-- End Image Grid -->
+               </div>
+               <!-- End Top más vendido -->
+               <!-- End Top más vendido -->
+               <div class="mt-4 rounded-lg shadow-md border border-gray-800 p-5">
+                  <h2 class="mb-5 font-bold text-black dark:text-neutral-200">
+                     Culture Colecciones 🔥
+                  </h2>
+                  <!-- Image Grid -->
+                  <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                     <a class="group block relative overflow-hidden rounded-lg">
+                        <img class="w-full size-40 object-cover  rounded-lg" src="case/Corona.png" alt="Project">
+                        <div class="p-2 text-sm">
+                           <h3 class="font-bold">👑 Corona 👑</h3>
+                           <p class="text-gray-700 mt-2">$15,00</p>
+                           <label for="hs-select-label" class="mt-2 block text-sm font-medium mb-2">Escoge el modelo de iPhone</label>
+                           <select id="hs-select-label" class="px-4 pe-9 block w-full  border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none bg-neutral-900 border-neutral-700 text-neutral-400 placeholder-neutral-500 focus:ring-neutral-600">
+                              <option selected>Escoge tu modelo de iPhone</option>
+                              <!-- iPhone 16 Series -->
+                              <option>iPhone 16</option>
+                              <option>iPhone 16 Plus</option>
+                              <option>iPhone 16 Pro</option>
+                              <option>iPhone 16 Pro Max</option>
+                              <!-- iPhone 15 Series -->
+                              <option>iPhone 15</option>
+                              <option>iPhone 15 Plus</option>
+                              <option>iPhone 15 Pro</option>
+                              <option>iPhone 15 Pro Max</option>
+                              <!-- iPhone 14 Series -->
+                              <option>iPhone 14</option>
+                              <option>iPhone 14 Plus</option>
+                              <option>iPhone 14 Pro</option>
+                              <option>iPhone 14 Pro Max</option>
+                              <!-- iPhone 13 Series -->
+                              <option>iPhone 13</option>
+                              <option>iPhone 13 Mini</option>
+                              <option>iPhone 13 Pro</option>
+                              <option>iPhone 13 Pro Max</option>
+                              <!-- iPhone 12 Series -->
+                              <option>iPhone 12</option>
+                              <option>iPhone 12 Mini</option>
+                              <option>iPhone 12 Pro</option>
+                              <option>iPhone 12 Pro Max</option>
+                              <!-- iPhone 11 Series -->
+                              <option>iPhone 11</option>
+                              <option>iPhone 11 Pro</option>
+                              <option>iPhone 11 Pro Max</option>
+                              <!-- iPhone SE Series -->
+                              <option>iPhone SE (1ª Gen)</option>
+                              <option>iPhone SE (2ª Gen)</option>
+                              <option>iPhone SE (3ª Gen)</option>
+                              <!-- Otros Modelos -->
+                              <option>iPhone XS</option>
+                              <option>iPhone XS Max</option>
+                              <option>iPhone XR</option>
+                              <option>iPhone X</option>
+                              <option>iPhone 8</option>
+                              <option>iPhone 8 Plus</option>
+                              <option>iPhone 7</option>
+                              <option>iPhone 7 Plus</option>
+                           </select>
+                           <button type="button" class="mt-1 py-2 px-2 w-full inline-flex justify-center gap-x-1 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
+                              Agregar al carrito
+                              <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                 <path d="m5 11 4-7"></path>
+                                 <path d="m19 11-4-7"></path>
+                                 <path d="M2 11h20"></path>
+                                 <path d="m3.5 11 1.6 7.4a2 2 0 0 0 2 1.6h9.8c.9 0 1.8-.7 2-1.6l1.7-7.4"></path>
+                                 <path d="m9 11 1 9"></path>
+                                 <path d="M4.5 15.5h15"></path>
+                                 <path d="m15 11-1 9"></path>
+                              </svg>
+                           </button>
+                        </div>
+                     </a>
+                     <a class="group block relative overflow-hidden rounded-lg " href="https://wa.me/593995972586?text=%C2%A1Hola!%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20del%20producto%20*Colecci%C3%B3n%20Metal*">
+                        <img class="w-full size-40 object-cover  rounded-lg " src="case/Angeles.png" alt="Project">
+                        <div class="absolute bottom-1 end-1 opacity-0 group-hover:opacity-100 transition">
+                           <div class="flex items-center gap-x-1 py-1 px-2 bg-white border border-gray-200 text-gray-800 rounded-lg dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-200">
+                              <svg class="shrink-0 size-3" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                 <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"></path>
+                              </svg>
+                              <span class="text-xs">Comprar por WhatsApp</span>
+                           </div>
+                        </div>
+                        <div class="p-2 text-sm">
+                           <h3 class="font-bold">🪽 Angeles 🪽</h3>
+                           <p class="text-gray-700 mt-2">$15,00</p>
+                        </div>
+                     </a>
+                     <a class="group block relative overflow-hidden rounded-lg" href="https://wa.me/593995972586?text=%C2%A1Hola!%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20del%20producto%20*Combito%20makeup*">
+                        <img class="w-full size-40 object-cover rounded-lg" src="case/Cielo de Angeles.png" alt="Project">
+                        <div class="absolute bottom-1 end-1 opacity-0 group-hover:opacity-100 transition">
+                           <div class="flex items-center gap-x-1 py-1 px-2 bg-white border border-gray-200 text-gray-800 rounded-lg dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-200">
+                              <svg class="shrink-0 size-3" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                 <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"></path>
+                              </svg>
+                              <span class="text-xs">Comprar por WhatsApp</span>
+                           </div>
+                        </div>
+                        <div class="p-2 text-sm">
+                           <h3 class="font-bold">🌌 Cielo de Angeles 🌌</h3>
+                           <p class="text-gray-700 mt-2">$15,00</p>
+                        </div>
+                     </a>
+                     <a class="group block relative overflow-hidden rounded-lg" href="https://wa.me/593995972586?text=%C2%A1Hola!%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20del%20producto%20*Combito%20makeup*">
+                        <img class="w-full size-40 object-cover rounded-lg" src="case/The Creation of Adam.png" alt="Project">
+                        <div class="absolute bottom-1 end-1 opacity-0 group-hover:opacity-100 transition">
+                           <div class="flex items-center gap-x-1 py-1 px-2 bg-white border border-gray-200 text-gray-800 rounded-lg dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-200">
+                              <svg class="shrink-0 size-3" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                 <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"></path>
+                              </svg>
+                              <span class="text-xs">Comprar por WhatsApp</span>
+                           </div>
+                        </div>
+                        <div class="p-2 text-sm">
+                           <h3 class="font-bold">✨ The Creation of Adam ✨</h3>
+                           <p class="text-gray-700 mt-2">$15,00</p>
+                        </div>
+                     </a>
+                     <a class="group block relative overflow-hidden rounded-lg" href="https://wa.me/593995972586?text=%C2%A1Hola!%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20del%20producto%20*Combo%20fresita*">
+                        <img class="w-full size-40 object-cover  rounded-lg" src="case/Duo Angels.png" alt="Project">
+                        <div class="absolute bottom-1 end-1 opacity-0 group-hover:opacity-100 transition">
+                           <div class="flex items-center gap-x-1 py-1 px-2 bg-white border border-gray-200 text-gray-800 rounded-lg dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-200">
+                              <svg class="shrink-0 size-3" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                 <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"></path>
+                              </svg>
+                              <span class="text-xs">Comprar por WhatsApp</span>
+                           </div>
+                        </div>
+                        <div class="p-2 text-sm">
+                           <h3 class="font-bold">🍃 Duo Angeles 🪽</h3>
+                           <p class="text-gray-700 mt-2">$15,00</p>
+                        </div>
+                     </a>
+                     <a class="group block relative overflow-hidden rounded-lg" href="https://wa.me/593995972586?text=%C2%A1Hola!%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20del%20producto%20*Colecci%C3%B3n%20Metal*">
+                        <img class="w-full size-40 object-cover  rounded-lg " src="case/The Creation of Adam 2.png" alt="Project">
+                        <div class="absolute bottom-1 end-1 opacity-0 group-hover:opacity-100 transition">
+                           <div class="flex items-center gap-x-1 py-1 px-2 bg-white border border-gray-200 text-gray-800 rounded-lg dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-200">
+                              <svg class="shrink-0 size-3" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                 <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"></path>
+                              </svg>
+                              <span class="text-xs">Comprar por WhatsApp</span>
+                           </div>
+                        </div>
+                        <div class="p-2 text-sm">
+                           <h3 class="font-bold"> 🌌 The Creation of Adam 2 ✨</h3>
+                           <p class="text-gray-700 mt-2">$15,00</p>
+                        </div>
+                     </a>
+                     <a class="group block relative overflow-hidden rounded-lg" href="https://wa.me/593995972586?text=%C2%A1Hola!%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20del%20producto%20*Combito%20makeup*">
+                        <img class="w-full size-40 object-cover rounded-lg" src="case/The Starry Night.png" alt="Project">
+                        <div class="absolute bottom-1 end-1 opacity-0 group-hover:opacity-100 transition">
+                           <div class="flex items-center gap-x-1 py-1 px-2 bg-white border border-gray-200 text-gray-800 rounded-lg dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-200">
+                              <svg class="shrink-0 size-3" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                 <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"></path>
+                              </svg>
+                              <span class="text-xs">Comprar por WhatsApp</span>
+                           </div>
+                        </div>
+                        <div class="p-2 text-sm">
+                           <h3 class="font-bold">🌜 La noche estrellada 🌛</h3>
+                           <p class="text-gray-700 mt-2">$15,00</p>
+                        </div>
+                     </a>
+                     <a class="group block relative overflow-hidden rounded-lg" href="https://wa.me/593995972586?text=%C2%A1Hola!%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20del%20producto%20*Combito%20makeup*">
+                        <img class="w-full size-40 object-cover rounded-lg" src="case/The Scream.png" alt="Project">
+                        <div class="absolute bottom-1 end-1 opacity-0 group-hover:opacity-100 transition">
+                           <div class="flex items-center gap-x-1 py-1 px-2 bg-white border border-gray-200 text-gray-800 rounded-lg dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-200">
+                              <svg class="shrink-0 size-3" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                 <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"></path>
+                              </svg>
+                              <span class="text-xs">Comprar por WhatsApp</span>
+                           </div>
+                        </div>
+                        <div class="p-2 text-sm">
+                           <h3 class="font-bold">😱 El grito 😱</h3>
+                           <p class="text-gray-700 mt-2">$15,00</p>
+                        </div>
+                     </a>
+                     <!-- Agrega los demás productos de manera similar -->
+                  </div>
+                  <!-- End Image Grid -->
+                  <!-- End Image Grid -->
+               </div>
+            </div>
+         </div>
+      </main>
+
+      <div id="carrito" class="mt-2 w-full max-w-[85rem] py-4 px-5 sm:px-6 lg:px-8 mx-auto">
+         <!-- Grid -->
+         <div class="text-center backdrop-blur-lg bg-white/60 shadow-xl rounded-xl border p-4 border-gray-200 max-w-2xl mx-auto p-4">
+            <div class="inline-flex items-center gap-x-2 text-lg font-bold rounded-lg border border-transparent">
+               Mi carrito
+               <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                 <path d="m5 11 4-7"></path>
+                 <path d="m19 11-4-7"></path>
+                 <path d="M2 11h20"></path>
+                 <path d="m3.5 11 1.6 7.4a2 2 0 0 0 2 1.6h9.8c.9 0 1.8-.7 2-1.6l1.7-7.4"></path>
+                 <path d="m9 11 1 9"></path>
+                 <path d="M4.5 15.5h15"></path>
+                 <path d="m15 11-1 9"></path>
+               </svg>
+            </div>
+                  
+   
+            <div id="checked-style-tab-preview-markup" class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-4">
+               <ul class="space-y-3 text-sm">
+                 <li class="flex gap-x-3">
+                   <span class="size-5 flex justify-center items-center rounded-full bg-blue-600 text-white dark:bg-blue-500">
+                     <svg class="shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                       <polyline points="20 6 9 17 4 12"></polyline>
+                     </svg>
+                   </span>
+                   <span class="text-gray-800">
+                     FAQ
+                   </span>
+                 </li>
+   
+                 <li class="flex gap-x-3">
+                   <span class="size-5 flex justify-center items-center rounded-full bg-blue-600 text-white dark:bg-blue-500">
+                     <svg class="shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                       <polyline points="20 6 9 17 4 12"></polyline>
+                     </svg>
+                   </span>
+                   <span class="text-gray-800">
+                     License
+                   </span>
+                 </li>
+   
+                 <li class="flex gap-x-3">
+                   <span class="size-5 flex justify-center items-center rounded-full bg-blue-600 text-white dark:bg-blue-500">
+                     <svg class="shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                       <polyline points="20 6 9 17 4 12"></polyline>
+                     </svg>
+                   </span>
+                   <span class="text-gray-800">
+                     Terms &amp; Conditions
+                   </span>
+                 </li>
+               </ul>
+             </div>
+
+             <button class="mt-4 rounded-lg gap-x-1 py-2 px-4 inline-flex justify-center items-center bg-neutral-900 text-white hover:bg-green-700">
+               
+                  <svg class="shrink-0 size-3" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                     <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"></path>
+                  </svg>
+                  <span class="text-sm text-white font-medium">Comprar por WhatsApp</span>
+               
+            </button>
+         </div>
+         </div>
+         <!-- End Grid -->
+
+
+
+      <footer class="mt-auto w-full max-w-[85rem] py-10 px-4 sm:px-6 lg:px-8 mx-auto">
+         <!-- Grid -->
+         <div class="text-center backdrop-blur-lg bg-white/60 shadow-xl rounded-xl border-gray-200 max-w-2xl mx-auto p-4">
+            <!-- End Col -->
+            <div class="ecuatrends-text font-bold text-lg">
+               Hecho por Ecuatrends.la
+            </div>
+            <p class="text-gray-800">Vende con tu link en tu bio <a class="ecuatrends-text text-black decoration-2 hover:underline focus:outline-none focus:underline font-medium dark:text-blue-500" href="http://127.0.0.1:8000/sweetie/#"> ¡Unete!</a></p>
+            <p class="text-gray-800">
+               Con todo el 💓 desde Ecuador
+            </p>
+         </div>
+
+         <!-- End Grid -->
+      </footer>
+      <div class="bg-[radial-gradient(closest-side,theme(colors.violet.600),theme(colors.blue.600),transparent)] h-1"></div>
+      <script>
+         document.addEventListener('DOMContentLoaded', () => {
+         const messages = document.querySelectorAll('.banner-message');
+         let currentIndex = 0;
+         
+         const showNextMessage = () => {
+          const currentMessage = messages[currentIndex];
+          const nextIndex = (currentIndex + 1) % messages.length;
+          const nextMessage = messages[nextIndex];
+         
+          // Update classes
+          currentMessage.classList.remove('active');
+          currentMessage.classList.add('previous');
+          nextMessage.classList.add('active');
+         
+          // Reset previous message
+          setTimeout(() => currentMessage.classList.remove('previous'), 500);
+         
+          // Update index
+          currentIndex = nextIndex;
+         };
+         
+         // Initialize first message
+         messages[currentIndex].classList.add('active');
+         
+         // Cycle messages every 3 seconds
+         setInterval(showNextMessage, 3000);
+         });
+         
+      </script>
+      <script src="https://cdn.jsdelivr.net/npm/preline/dist/preline.min.js"></script>
+   </body>
+   <!-- ========== FOOTER ========== -->
+</html>
