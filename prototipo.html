@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrito de Productos</title>
+  <link rel="stylesheet" href="./Sweetie_files/main.min.css">
+  <style>
+    .cart { margin-top: 20px; }
+    button { padding: 10px; background-color: #4CAF50; color: white; border: none; cursor: pointer; }
+    button:hover { background-color: #45a049; }
+  </style>
+</head>
+
+
+
+
+
+<body style="background: black;">
+
+
+   <!-- Announcement Banner -->
+
+   <div class="sticky top-0 inset-x-0 flex flex-wrap md:justify-start md:flex-nowrap z-50 w-full text-sm">
+     <!-- Grid -->
+     <div class="grid grid-flow-col justify-end md:grid-cols-2 md:justify-between md:items-center gap-2 mt-4 relative max-w-2xl w-full border border-gray-200 rounded-[2rem] mx-5 py-2.5 md:flex md:items-center md:justify-between md:py-0 md:px-4 md:mx-auto bg-neutral-900 border-neutral-700">
+       <div class="text-center md:text-start">
+         <p class="px-4 md:px-5 text-xs text-white/80 uppercase tracking-wider">
+            💗 ¡Oferta San Valentin! 💗
+         </p>
+         <p class="px-4 md:px-5 mt-1 text-white font-medium">
+            Envío Gratuito a todo el país mayores a $40 USD 
+         </p>
+       </div>
+       <!-- End Col -->
+ 
+       <div class="text-center md:text-start md:flex md:justify-end md:items-center">
+         <button type="button"  onclick="document.getElementById('carrito').scrollIntoView({ behavior: 'smooth' })" class="py-2 m-2 mx-5 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
+            Ver carrito
+            <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+               <path d="m5 11 4-7"></path>
+               <path d="m19 11-4-7"></path>
+               <path d="M2 11h20"></path>
+               <path d="m3.5 11 1.6 7.4a2 2 0 0 0 2 1.6h9.8c.9 0 1.8-.7 2-1.6l1.7-7.4"></path>
+               <path d="m9 11 1 9"></path>
+               <path d="M4.5 15.5h15"></path>
+               <path d="m15 11-1 9"></path>
+            </svg>
+         </button>
+       </div>
+       <!-- End Col -->
+     </div>
+     <!-- End Grid -->
+   </div>
+
+
+
+  <div class="mt-4 mb-4 mx-5">
+    <div class="backdrop-blur-lg bg-white/60 shadow-xl rounded-xl border-gray-200 max-w-2xl mx-auto pt-10 pb-10 md:pt-10 px-4 sm:px-6 lg:px-8">
+      <!-- Profile -->
+      <div class="flex items-center gap-x-3">
+        <div class="shrink-0">
+           <img class="shrink-0 size-16 rounded-full" src="./Sweetie_files/digital marketing logo abstract gradient (500 x 100 px) (500 x 500 px) (1).png" alt="Avatar">
+        </div>
+        <div class="grow">
+           <h1 class="text-xl font-bold text-black ">
+              Ecuatrends
+           </h1>
+           <p class="text-base text-gray-800">
+              🔥¡Los mejores Cases para tu iPhone!💓 
+           </p>
+        </div>
+     </div>
+     <!-- End Profile -->
+      <!-- About -->
+      <div class="mt-6">
+        <p class="text-base text-gray-800">
+           ¡Envios a todo el Ecuador!<br>Protección definitiva con estilo<br>Ecuador - Guayaquil<br>Tienda física - Norte de Guayaquil
+        </p>
+        <div class="flex justify-center mt-6 space-x-1">
+           <a class="inline-flex justify-center items-center size-12 text-sm font-semibold rounded-lg  text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none" href="https://www.instagram.com/sweetiecuddle_shop/" target="_parent">
+              <svg class="shrink-0 size-8" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                 <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"></path>
+              </svg>
+           </a>
+           <a class="inline-flex justify-center items-center size-12 text-sm font-semibold rounded-lg  text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none" href="https://api.whatsapp.com/send?phone=5930995972586" target="_parent">
+              <svg class="shrink-0 size-8" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                 <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"></path>
+              </svg>
+           </a>
+           <a class="inline-flex justify-center items-center size-12 text-sm font-semibold rounded-lg  text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none" href="https://www.tiktok.com/@sweetiecuddle_shop" target="_parent">
+              <svg class="shrink-0 size-8" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                 <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z"></path>
+              </svg>
+           </a>
+        </div>
+     </div>
+     <!-- End About -->
+
+     <!-- Link -->
+     <a class="mt-4 shadow-xl border border-neutral-700 group block  focus:outline-none p-4 rounded-lg text-center" href="https://maps.app.goo.gl/kkKaM3xVN3HxEYKC8">
+      <div class="max-w-[85rem] px-4 sm:px-6 lg:px-8 mx-auto">
+         <p class="me-2 inline-block text-sm text-gray-800 dark:text-neutral-200">
+            ¡Visita nuestra tienda fisica! 
+         </p>
+         <span class="group-hover:underline group-focus:underline decoration-2 inline-flex justify-center items-center gap-x-2 font-semibold text-blue-600 text-sm dark:text-blue-500">
+            Google Maps
+            <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+               <path d="m9 18 6-6-6-6"></path>
+            </svg>
+         </span>
+      </div>
+   </a>
+   <!-- End Link -->
+  <div id="products" class="grid grid-cols-2 sm:grid-cols-3 gap-3 mt-6">
+    <!-- Productos generados dinámicamente -->
+  </div>
+
+  <hr class="border-gray-500 mt-8 mb-8">
+
+  <div id="carrito" class="cart">
+    <h2 class="text-xl font-bold text-gray-800">Carrito de Compras</h2>
+    <ul id="cart" class="mt-2 mb-2"></ul>
+    <button class="rounded-lg gap-x-1 py-2 px-4 inline-flex justify-center items-center bg-neutral-900 text-white hover:bg-green-700" id="checkout" disabled>
+
+      <svg class="shrink-0 size-3" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+         <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"></path>
+      </svg>
+      <span class="text-sm text-white font-medium">Comprar por WhatsApp</span>
+
+    </button>
+  </div>
+  </div>
+  </div>
+
+
+
+  
+
+
+  
+
+  <script>
+    // Datos de productos
+    const products = [
+   
+
+    
+  {
+    id: 1,
+    name: "👑 Corona 👑",
+    image: "case/Corona.png",
+    options: [
+      "iPhone 16", "iPhone 16 Plus", "iPhone 16 Pro", "iPhone 16 Pro Max",
+      "iPhone 15", "iPhone 15 Plus", "iPhone 15 Pro", "iPhone 15 Pro Max",
+      "iPhone 14", "iPhone 14 Plus", "iPhone 14 Pro", "iPhone 14 Pro Max",
+      "iPhone 13", "iPhone 13 Mini", "iPhone 13 Pro", "iPhone 13 Pro Max",
+      "iPhone 12", "iPhone 12 Mini", "iPhone 12 Pro", "iPhone 12 Pro Max",
+      "iPhone 11", "iPhone 11 Pro", "iPhone 11 Pro Max",
+      "iPhone SE (1ª Gen)", "iPhone SE (2ª Gen)", "iPhone SE (3ª Gen)",
+      "iPhone XS", "iPhone XS Max", "iPhone XR", "iPhone X",
+      "iPhone 8", "iPhone 8 Plus", "iPhone 7", "iPhone 7 Plus"
+    ],
+    price: 15
+  },
+  {
+    id: 2,
+    name: "Angeles",
+    image: "case/Angeles.png",
+    options: [
+      "iPhone 16", "iPhone 16 Plus", "iPhone 16 Pro", "iPhone 16 Pro Max",
+      "iPhone 15", "iPhone 15 Plus", "iPhone 15 Pro", "iPhone 15 Pro Max",
+      "iPhone 14", "iPhone 14 Plus", "iPhone 14 Pro", "iPhone 14 Pro Max",
+      "iPhone 13", "iPhone 13 Mini", "iPhone 13 Pro", "iPhone 13 Pro Max",
+      "iPhone 12", "iPhone 12 Mini", "iPhone 12 Pro", "iPhone 12 Pro Max",
+      "iPhone 11", "iPhone 11 Pro", "iPhone 11 Pro Max",
+      "iPhone SE (1ª Gen)", "iPhone SE (2ª Gen)", "iPhone SE (3ª Gen)",
+      "iPhone XS", "iPhone XS Max", "iPhone XR", "iPhone X",
+      "iPhone 8", "iPhone 8 Plus", "iPhone 7", "iPhone 7 Plus"
+    ],
+    price: 15
+  },
+  {
+    id: 3,
+    name: "Apoteose de Santo Inacio",
+    image: "case/Apoteose de santo inacio.png",
+    options: [
+      "iPhone 16", "iPhone 16 Plus", "iPhone 16 Pro", "iPhone 16 Pro Max",
+      "iPhone 15", "iPhone 15 Plus", "iPhone 15 Pro", "iPhone 15 Pro Max",
+      "iPhone 14", "iPhone 14 Plus", "iPhone 14 Pro", "iPhone 14 Pro Max",
+      "iPhone 13", "iPhone 13 Mini", "iPhone 13 Pro", "iPhone 13 Pro Max",
+      "iPhone 12", "iPhone 12 Mini", "iPhone 12 Pro", "iPhone 12 Pro Max",
+      "iPhone 11", "iPhone 11 Pro", "iPhone 11 Pro Max",
+      "iPhone SE (1ª Gen)", "iPhone SE (2ª Gen)", "iPhone SE (3ª Gen)",
+      "iPhone XS", "iPhone XS Max", "iPhone XR", "iPhone X",
+      "iPhone 8", "iPhone 8 Plus", "iPhone 7", "iPhone 7 Plus"
+    ],
+    price: 15
+  },
+  {
+    id: 4,
+    name: "Cielo de Angeles",
+    image: "case/Cielo de Angeles.png",
+    options: [
+      "iPhone 16", "iPhone 16 Plus", "iPhone 16 Pro", "iPhone 16 Pro Max",
+      "iPhone 15", "iPhone 15 Plus", "iPhone 15 Pro", "iPhone 15 Pro Max",
+      "iPhone 14", "iPhone 14 Plus", "iPhone 14 Pro", "iPhone 14 Pro Max",
+      "iPhone 13", "iPhone 13 Mini", "iPhone 13 Pro", "iPhone 13 Pro Max",
+      "iPhone 12", "iPhone 12 Mini", "iPhone 12 Pro", "iPhone 12 Pro Max",
+      "iPhone 11", "iPhone 11 Pro", "iPhone 11 Pro Max",
+      "iPhone SE (1ª Gen)", "iPhone SE (2ª Gen)", "iPhone SE (3ª Gen)",
+      "iPhone XS", "iPhone XS Max", "iPhone XR", "iPhone X",
+      "iPhone 8", "iPhone 8 Plus", "iPhone 7", "iPhone 7 Plus"
+    ],
+    price: 15
+  },
+  {
+    id: 5,
+    name: "Duo Angels",
+    image: "case/Duo Angels.png",
+    options: [
+      "iPhone 16", "iPhone 16 Plus", "iPhone 16 Pro", "iPhone 16 Pro Max",
+      "iPhone 15", "iPhone 15 Plus", "iPhone 15 Pro", "iPhone 15 Pro Max",
+      "iPhone 14", "iPhone 14 Plus", "iPhone 14 Pro", "iPhone 14 Pro Max",
+      "iPhone 13", "iPhone 13 Mini", "iPhone 13 Pro", "iPhone 13 Pro Max",
+      "iPhone 12", "iPhone 12 Mini", "iPhone 12 Pro", "iPhone 12 Pro Max",
+      "iPhone 11", "iPhone 11 Pro", "iPhone 11 Pro Max",
+      "iPhone SE (1ª Gen)", "iPhone SE (2ª Gen)", "iPhone SE (3ª Gen)",
+      "iPhone XS", "iPhone XS Max", "iPhone XR", "iPhone X",
+      "iPhone 8", "iPhone 8 Plus", "iPhone 7", "iPhone 7 Plus"
+    ],
+    price: 15
+  },
+  {
+    id: 6,
+    name: "The Hercules Salon",
+    image: "case/The ceiling of The Hercules Salon.png",
+    options: [
+      "iPhone 16", "iPhone 16 Plus", "iPhone 16 Pro", "iPhone 16 Pro Max",
+      "iPhone 15", "iPhone 15 Plus", "iPhone 15 Pro", "iPhone 15 Pro Max",
+      "iPhone 14", "iPhone 14 Plus", "iPhone 14 Pro", "iPhone 14 Pro Max",
+      "iPhone 13", "iPhone 13 Mini", "iPhone 13 Pro", "iPhone 13 Pro Max",
+      "iPhone 12", "iPhone 12 Mini", "iPhone 12 Pro", "iPhone 12 Pro Max",
+      "iPhone 11", "iPhone 11 Pro", "iPhone 11 Pro Max",
+      "iPhone SE (1ª Gen)", "iPhone SE (2ª Gen)", "iPhone SE (3ª Gen)",
+      "iPhone XS", "iPhone XS Max", "iPhone XR", "iPhone X",
+      "iPhone 8", "iPhone 8 Plus", "iPhone 7", "iPhone 7 Plus"
+    ],
+    price: 15
+  },
+  {
+    id: 7,
+    name: "The Creation of Adam 2",
+    image: "case/The Creation of Adam 2.png",
+    options: [
+      "iPhone 16", "iPhone 16 Plus", "iPhone 16 Pro", "iPhone 16 Pro Max",
+      "iPhone 15", "iPhone 15 Plus", "iPhone 15 Pro", "iPhone 15 Pro Max",
+      "iPhone 14", "iPhone 14 Plus", "iPhone 14 Pro", "iPhone 14 Pro Max",
+      "iPhone 13", "iPhone 13 Mini", "iPhone 13 Pro", "iPhone 13 Pro Max",
+      "iPhone 12", "iPhone 12 Mini", "iPhone 12 Pro", "iPhone 12 Pro Max",
+      "iPhone 11", "iPhone 11 Pro", "iPhone 11 Pro Max",
+      "iPhone SE (1ª Gen)", "iPhone SE (2ª Gen)", "iPhone SE (3ª Gen)",
+      "iPhone XS", "iPhone XS Max", "iPhone XR", "iPhone X",
+      "iPhone 8", "iPhone 8 Plus", "iPhone 7", "iPhone 7 Plus"
+    ],
+    price: 15
+  },
+  {
+    id: 8,
+    name: "The Creation of Adam",
+    image: "case/The Creation of Adam.png",
+    options: [
+      "iPhone 16", "iPhone 16 Plus", "iPhone 16 Pro", "iPhone 16 Pro Max",
+      "iPhone 15", "iPhone 15 Plus", "iPhone 15 Pro", "iPhone 15 Pro Max",
+      "iPhone 14", "iPhone 14 Plus", "iPhone 14 Pro", "iPhone 14 Pro Max",
+      "iPhone 13", "iPhone 13 Mini", "iPhone 13 Pro", "iPhone 13 Pro Max",
+      "iPhone 12", "iPhone 12 Mini", "iPhone 12 Pro", "iPhone 12 Pro Max",
+      "iPhone 11", "iPhone 11 Pro", "iPhone 11 Pro Max",
+      "iPhone SE (1ª Gen)", "iPhone SE (2ª Gen)", "iPhone SE (3ª Gen)",
+      "iPhone XS", "iPhone XS Max", "iPhone XR", "iPhone X",
+      "iPhone 8", "iPhone 8 Plus", "iPhone 7", "iPhone 7 Plus"
+    ],
+    price: 15
+  },
+  {
+    id: 9,
+    name: "The Persistence of Memory",
+    image: "case/The Persistence of Memory.png",
+    options: [
+      "iPhone 16", "iPhone 16 Plus", "iPhone 16 Pro", "iPhone 16 Pro Max",
+      "iPhone 15", "iPhone 15 Plus", "iPhone 15 Pro", "iPhone 15 Pro Max",
+      "iPhone 14", "iPhone 14 Plus", "iPhone 14 Pro", "iPhone 14 Pro Max",
+      "iPhone 13", "iPhone 13 Mini", "iPhone 13 Pro", "iPhone 13 Pro Max",
+      "iPhone 12", "iPhone 12 Mini", "iPhone 12 Pro", "iPhone 12 Pro Max",
+      "iPhone 11", "iPhone 11 Pro", "iPhone 11 Pro Max",
+      "iPhone SE (1ª Gen)", "iPhone SE (2ª Gen)", "iPhone SE (3ª Gen)",
+      "iPhone XS", "iPhone XS Max", "iPhone XR", "iPhone X",
+      "iPhone 8", "iPhone 8 Plus", "iPhone 7", "iPhone 7 Plus"
+    ],
+    price: 15
+  },
+  {
+    id: 10,
+    name: "The Scream",
+    image: "case/The Scream.png",
+    options: [
+      "iPhone 16", "iPhone 16 Plus", "iPhone 16 Pro", "iPhone 16 Pro Max",
+      "iPhone 15", "iPhone 15 Plus", "iPhone 15 Pro", "iPhone 15 Pro Max",
+      "iPhone 14", "iPhone 14 Plus", "iPhone 14 Pro", "iPhone 14 Pro Max",
+      "iPhone 13", "iPhone 13 Mini", "iPhone 13 Pro", "iPhone 13 Pro Max",
+      "iPhone 12", "iPhone 12 Mini", "iPhone 12 Pro", "iPhone 12 Pro Max",
+      "iPhone 11", "iPhone 11 Pro", "iPhone 11 Pro Max",
+      "iPhone SE (1ª Gen)", "iPhone SE (2ª Gen)", "iPhone SE (3ª Gen)",
+      "iPhone XS", "iPhone XS Max", "iPhone XR", "iPhone X",
+      "iPhone 8", "iPhone 8 Plus", "iPhone 7", "iPhone 7 Plus"
+    ],
+    price: 15
+  },
+  {
+    id: 11,
+    name: "The Starry Night",
+    image: "case/The Starry Night.png",
+    options: [
+      "iPhone 16", "iPhone 16 Plus", "iPhone 16 Pro", "iPhone 16 Pro Max",
+      "iPhone 15", "iPhone 15 Plus", "iPhone 15 Pro", "iPhone 15 Pro Max",
+      "iPhone 14", "iPhone 14 Plus", "iPhone 14 Pro", "iPhone 14 Pro Max",
+      "iPhone 13", "iPhone 13 Mini", "iPhone 13 Pro", "iPhone 13 Pro Max",
+      "iPhone 12", "iPhone 12 Mini", "iPhone 12 Pro", "iPhone 12 Pro Max",
+      "iPhone 11", "iPhone 11 Pro", "iPhone 11 Pro Max",
+      "iPhone SE (1ª Gen)", "iPhone SE (2ª Gen)", "iPhone SE (3ª Gen)",
+      "iPhone XS", "iPhone XS Max", "iPhone XR", "iPhone X",
+      "iPhone 8", "iPhone 8 Plus", "iPhone 7", "iPhone 7 Plus"
+    ],
+    price: 15
+  }
+
+
+
+    ];
+
+    const cart = []; // Array para almacenar el carrito
+
+    // Renderizar productos
+    const productContainer = document.getElementById("products");
+    products.forEach(product => {
+      const div = document.createElement("div");
+      div.classList.add("product");
+
+      div.innerHTML = `   
+        <a class="group block relative overflow-hidden rounded-lg">
+                        <img class="w-full size-40 object-cover  rounded-lg" src="${product.image}" alt="Project">
+                        <div class="p-2 text-sm">
+                           <h3 class="font-bold">${product.name}</h3>
+                           <p class="text-gray-700 mt-2">$${product.price}</p>
+                           <label for="hs-select-label option-${product.id}" class="mt-2 block text-sm font-medium mb-2">Escoge el modelo de iPhone</label>
+                           <select id="option-${product.id}" hs-select-label" class="px-4 pe-9 block w-full  border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none bg-neutral-900 border-neutral-700 text-neutral-400 placeholder-neutral-500 focus:ring-neutral-600">
+                              ${product.options.map(option => `<option value="${option}">${option}</option>`).join("")}
+                           </select>
+                           <button onclick="addToCart(${product.id})" type="button" class="mt-1 py-2 px-2 w-full inline-flex justify-center gap-x-1 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
+                              Agregar al carrito
+                              <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                 <path d="m5 11 4-7"></path>
+                                 <path d="m19 11-4-7"></path>
+                                 <path d="M2 11h20"></path>
+                                 <path d="m3.5 11 1.6 7.4a2 2 0 0 0 2 1.6h9.8c.9 0 1.8-.7 2-1.6l1.7-7.4"></path>
+                                 <path d="m9 11 1 9"></path>
+                                 <path d="M4.5 15.5h15"></path>
+                                 <path d="m15 11-1 9"></path>
+                              </svg>
+                           </button>
+                        </div>
+                     </a>
+      
+        `
+
+      ;
+      productContainer.appendChild(div);
+    });
+
+    // Función para agregar productos al carrito
+    function addToCart(productId) {
+      const product = products.find(p => p.id === productId);
+      const option = document.getElementById(`option-${productId}`).value;
+
+      // Agregar al carrito
+      cart.push({ name: product.name, option, price: product.price });
+      renderCart();
+    }
+
+    // Renderizar el carrito
+    function renderCart() {
+      const cartContainer = document.getElementById("cart");
+      cartContainer.innerHTML = "";
+
+
+
+      // Limpiar el contenedor primero
+cartContainer.innerHTML = '';
+
+// Crear la tabla una sola vez
+const table = document.createElement("table");
+table.className = "min-w-full divide-y divide-neutral-700";
+
+// Crear encabezado de la tabla
+const thead = document.createElement("thead");
+thead.innerHTML = `
+  <tr>
+    <th scope="col" class="px-2 py-3 text-left text-xs font-medium text-gray-800 uppercase">Producto</th>
+    <th scope="col" class="px-2 py-3 text-left text-xs font-medium text-gray-800 uppercase">Opción</th>
+    <th scope="col" class="px-2 py-3 text-left text-xs font-medium text-gray-800 uppercase">Precio</th>
+    <th scope="col" class="px-2 py-3 text-right text-xs font-medium text-gray-800 uppercase">Acciones</th>
+  </tr>
+`;
+
+// Crear cuerpo de la tabla
+const tbody = document.createElement("tbody");
+tbody.className = "min-w-full divide-y divide-neutral-700";
+
+// Agregar cada producto como una fila
+cart.forEach((item, index) => {
+  const tr = document.createElement("tr");
+  tr.innerHTML = `
+    <td class="px-2 py-4  text-sm font-medium text-gray-800 dark:text-gray-200">${item.name}</td>
+    <td class="px-2 py-4  text-sm text-gray-800 dark:text-gray-200">${item.option}</td>
+    <td class="px-2 py-4  text-sm text-gray-800 dark:text-gray-200">$${item.price}</td>
+    <td class="px-2 py-4  text-right text-sm font-medium">
+      <button 
+        class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-red-500 text-white hover:bg-red-600 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+        onclick="removeFromCart(${index})"
+      >
+        Eliminar
+      </button>
+    </td>
+  `;
+  tbody.appendChild(tr);
+});
+
+// Ensamblar la tabla
+table.appendChild(thead);
+table.appendChild(tbody);
+cartContainer.appendChild(table);
+
+
+
+      document.getElementById("checkout").disabled = cart.length === 0;
+    }
+
+    // Función para eliminar productos del carrito
+function removeFromCart(index) {
+  cart.splice(index, 1);
+  renderCart();
+}
+
+    // Generar mensaje para WhatsApp
+    document.getElementById("checkout").addEventListener("click", () => {
+      const message = cart.map(item => `- ${item.name} (${item.option}): $${item.price}`).join("\n");
+      const total = cart.reduce((sum, item) => sum + item.price, 0);
+
+      const finalMessage = `Hola, quiero comprar:\n${message}\n\nTotal: $${total}`;
+      const whatsappLink = `https://wa.me/?text=${encodeURIComponent(finalMessage)}`;
+
+      window.open(whatsappLink, "_blank");
+    });
+  </script>
+</body>
+</html>
